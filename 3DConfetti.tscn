@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="Environment" id=1]
+ambient_light_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id=3]
+material = SubResource( 2 )
+size = Vector2( 0.25, 0.45 )
+
+[sub_resource type="Curve" id=4]
+min_value = -10.0
+max_value = 10.0
+_data = [ Vector2( 0, 0 ), 0.0, 29.8286, 0, 1, Vector2( 0.176768, 5.27273 ), 20.25, 20.25, 0, 0, Vector2( 0.292929, -0.363636 ), -19.8621, -19.8621, 0, 0, Vector2( 0.474747, 2.72727 ), 17.5385, 17.5385, 0, 0, Vector2( 0.621212, -2.72727 ), -32.6667, -32.6667, 0, 0, Vector2( 0.80303, 4 ), 12.3158, 12.3158, 0, 0, Vector2( 1, 0 ), -20.3077, 0.0, 1, 0 ]
+
+[sub_resource type="Curve" id=5]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 1008.0, 0.0, 0, 0 ]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 22 )
+environment = SubResource( 1 )
+fov = 62.3
+
+[node name="Particles" type="CPUParticles" parent="."]
+transform = Transform( 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -12, 9, -4 )
+use_in_baked_light = true
+amount = 500
+lifetime = 4.0
+explosiveness = 0.71
+randomness = 0.6
+mesh = SubResource( 3 )
+flag_rotate_y = true
+direction = Vector3( 10, 0, 0 )
+spread = 40.0
+gravity = Vector3( -10, -7, 0 )
+initial_velocity = 20.0
+initial_velocity_random = 0.3
+angular_velocity = 200.0
+angular_velocity_random = 0.5
+tangential_accel = 2.0
+tangential_accel_random = 0.5
+tangential_accel_curve = SubResource( 4 )
+angle = 20.0
+angle_random = 0.5
+angle_curve = SubResource( 5 )
+scale_amount_random = 0.2
+color = Color( 0.729412, 0.0509804, 0.945098, 1 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+
+[node name="Particles2" type="CPUParticles" parent="."]
+transform = Transform( -0.707107, 0.707107, -8.74228e-08, 0.707107, 0.707107, 0, 6.18173e-08, -6.18173e-08, -1, 12, 9, -4 )
+use_in_baked_light = true
+amount = 500
+lifetime = 4.0
+explosiveness = 0.71
+randomness = 0.6
+mesh = SubResource( 3 )
+flag_rotate_y = true
+direction = Vector3( 10, 0, 0 )
+spread = 40.0
+gravity = Vector3( -10, -7, 0 )
+initial_velocity = 20.0
+initial_velocity_random = 0.3
+angular_velocity = 200.0
+angular_velocity_random = 0.5
+tangential_accel = 2.0
+tangential_accel_random = 0.5
+tangential_accel_curve = SubResource( 4 )
+angle = 20.0
+angle_random = 0.5
+angle_curve = SubResource( 5 )
+scale_amount_random = 0.2
+color = Color( 0.729412, 0.0509804, 0.945098, 1 )
+hue_variation = 1.0
+hue_variation_random = 1.0
